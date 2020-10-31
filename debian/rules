@@ -12,6 +12,7 @@ override_dh_autoreconf:
 	sed -i '/pager.c/d' plugins/Makefile.am
 	sed -i '/STATIC_PAGER/d' src/private.h
 	sed -i 's/libwnck-3.0//' configure.ac
+	sed -i 's/background=1/background=0/' data/default/panels/panel.in
 	dh_autoreconf ./autogen.sh --
 
 override_dh_auto_configure:
