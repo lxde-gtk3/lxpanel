@@ -9,6 +9,9 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 	dh ${@}
 
 override_dh_autoreconf:
+	sed -i '/pager.c/d' plugins/Makefile.am
+	sed -i '/STATIC_PAGER/d' src/private.h
+	sed -i 's/libwnck-3.0//' configure.ac
 	dh_autoreconf ./autogen.sh --
 
 override_dh_auto_configure:
