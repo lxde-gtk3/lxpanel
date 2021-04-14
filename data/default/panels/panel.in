@@ -17,7 +17,7 @@ Global {
     fontcolor=#ffffff
     usefontsize=0
     fontsize=10    
-    background=1
+    background=0
     backgroundfile=@prefix@/share/lxpanel/images/background.png
 }
 
@@ -55,10 +55,10 @@ Plugin {
             id=pcmanfm.desktop
         }
         Button {
-            id=gnome-terminal.desktop
+            id=lxde-x-terminal-emulator.desktop
         }
         Button {
-            id=firefox.desktop
+            id=lxde-x-www-browser.desktop
         }
     }
 }

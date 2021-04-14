@@ -37,7 +37,6 @@ PLUGINS_SOURCES = \
 	launchtaskbar.c \
 	task-button.c \
 	launch-button.c \
-	pager.c \
 	separator.c \
 	tray.c \
 	wincmd.c \

@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.10.0, http://lxde.org/)
+AC_INIT(lxpanel, 0.10.1, http://lxde.org/)
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects no-dist-gzip dist-xz])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -35,7 +35,7 @@ esac],[])
 
 if test "x$enable_gtk3" = "xyes" ; then
   gtk_module="gtk+-3.0"
-  pkg_modules="$pkg_modules $gtk_module libfm-gtk3 >= 1.2.0 libwnck-3.0"
+  pkg_modules="$pkg_modules $gtk_module libfm-gtk3 >= 1.2.0 "
   keybinder_module=keybinder-3.0
 else
   gtk_module="gtk+-2.0 >= 2.18.0"
@@ -276,11 +276,13 @@ else
 fi
 
 if test -n "$plugin_weather"; then
+    AC_MSG_CHECKING([for CURL development files])
     curl-config --help &>/dev/null || {
         AC_MSG_ERROR([weather plugin requires libcurl development files])
     }
     CURL_CFLAGS=$(curl-config --cflags)
     CURL_LIBS=$(curl-config --libs)
+    AC_MSG_RESULT([found])
     AC_SUBST(CURL_CFLAGS)
     AC_SUBST(CURL_LIBS)
 fi
